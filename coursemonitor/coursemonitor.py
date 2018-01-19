@@ -48,4 +48,5 @@ class CourseMonitor:
         while self.courses_to_monitor > 0:
             self.check_courses()
             if (self.courses_to_monitor > 0):
-                time.sleep(10)
+                # set to 5 minutes
+                time.sleep(300)
