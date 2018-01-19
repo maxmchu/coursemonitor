@@ -21,7 +21,9 @@ class CourseHTMLParser(HTMLParser):
                     attrlist = pair[1].split(" ")
                     matches = list(filter(lambda x: x in self.status_classes, attrlist))
                     if (len(matches) == 1):
-                        self.section_statuses.append(matches[0].replace("open-status-", ""))
+                        status = matches[0].replace("open-status-", "")
+                        status = status.replace("warning", "waitlisted")
+                        self.section_statuses.append(status)
 
     def get_section_names(self):
         return self.section_names

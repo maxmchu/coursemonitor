@@ -31,7 +31,7 @@ class CourseMonitor:
 
                 if (course.past_status == "new"):
                     if (course.status != "closed"):
-                        print("No monitoring needed, course is {}!".format(course.status))
+                        print("No monitoring needed, course is {}.".format(course.status))
                         course.monitor = False
                         self.courses_to_monitor -= 1
                     else:
@@ -42,7 +42,6 @@ class CourseMonitor:
                     if (course.status != "closed" and course.status != course.past_status):
                         print("Stopping monitoring and sending a message")
                         self.twilio_client.send_update_message(course)
-
 
     def refresh_status(self):
         while self.courses_to_monitor > 0:

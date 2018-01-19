@@ -5,7 +5,7 @@ import logging
 
 from twilio.rest import Client
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("twilio_logger")
 
 account_sid = os.environ.get("COURSEMONITOR_TWILIO_SID")
 auth_token = os.environ.get("COURSEMONITOR_TWILIO_AUTH_TOKEN")
