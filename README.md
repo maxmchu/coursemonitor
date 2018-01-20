@@ -11,6 +11,8 @@ send a SMS via Twilio to your phone when a class is detected as open.
 If you've never used Twilio before, [check out this link](https://www.twilio.com/docs/quickstart/python/sms#sign-up-for-twilio-and-get-a-phone-number) to get set up.
 A free trial should provide sufficient free credit (about $15 worth) for monitoring (text messages cost less than 1 cent).
 
+Edit `main.py` and run `pyrhon main.py` to begin monitoring. Sample code is provided.
+
 
 ## TODO
 

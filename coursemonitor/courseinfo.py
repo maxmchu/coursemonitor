@@ -4,8 +4,8 @@ import urllib2
 class CourseInfo:
 
     def __init__(self, term, dept, course_num, section):
-        self.term = term
-        self.dept = dept
+        self.term = term.upper()
+        self.dept = dept.upper()
         self.course_num = course_num
         self.section = section
         self.status = "new"
@@ -21,5 +21,11 @@ class CourseInfo:
         parser = CourseHTMLParser()
         parser.feed(htmldata)
 
-        self.status = parser.get_section_statuses()[parser.get_section_names().index(self.section)]
-        return self.status
+        if (parser.valid == True):
+            self.status = parser.get_section_statuses()[parser.get_section_names().index(self.section)]
+            return self.status
+
+        else:
+            print("Invalid course/section {} {}{} {} detected".format(self.term, self.dept, self.course_num, self.section))
+            self.monitor = False
+            return self.status

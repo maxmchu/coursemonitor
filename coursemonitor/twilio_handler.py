@@ -5,8 +5,6 @@ import logging
 
 from twilio.rest import Client
 
-logger = logging.getLogger("twilio_logger")
-
 account_sid = os.environ.get("COURSEMONITOR_TWILIO_SID")
 auth_token = os.environ.get("COURSEMONITOR_TWILIO_AUTH_TOKEN")
 twilio_phone_number = os.environ.get("COURSEMONITOR_TWILIO_NUMBER")
@@ -17,8 +15,8 @@ own_phone_number = os.environ.get("COURSEMONITOR_OWN_NUMBER")
 class TwilioHandler():
 
     def __init__(self):
-        if not all([account_sid, auth_token, twilio_phone_number]):
-            logger.error("Not all environment variables are configured!")
+        if not all([account_sid, auth_token, twilio_phone_number, own_phone_number]):
+            logging.error("Not all environment variables are configured!")
             return
         self.twilio_client = Client(account_sid, auth_token)
 
